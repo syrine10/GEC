@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+ <title>Modifier mot de passe</title>
+ <link rel="stylesheet" href="css/style1.css"/>
+    
+</h:head>
+<h:body >  
+ <ui:include src="/menu1.xhtml" />
+<f:view >
+
+
+<h:form id="forme"   >
+		
+	<p:growl id="growl" sticky="true" showDetail="true" life="3000" />
+
+<p:dialog   header="Modifier" widgetVar="dlg" visible="true"	resizable="false">
+				<h:panelGrid columns="2" cellpadding="5" >
+					<h:outputLabel value="Ancien mot de passe:" />
+					<h:outputLabel id="pwd1" value="#{userBean.utilisateur.password}"  />
+					
+					<h:outputLabel for="password1" value="Nouveau mot de passe:" />
+					<h:inputSecret id="password1" value="#{userBean.utilisateur.password}"></h:inputSecret>
+      				
+					<h:outputLabel for="password2" value="Confirmer le mot de passe:" />
+					<h:inputSecret id="password2" value="#{userBean.newPwd}"></h:inputSecret>
+      				<center><p:messages id="msg2" autoUpdate="true" closable="true"  /></center>
+ 
+					
+					<f:facet name="footer">
+						<center>
+							<p:commandButton value="Modifier" update="growl" action="#{userBean.modifierPwd}" />
+						</center>
+					</f:facet>
+
+				</h:panelGrid>
+			</p:dialog>
+		</h:form>
+
+</f:view>
+</h:body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+ <title>Profile</title>
+
+    
+</h:head>
+<h:body >  
+
+<f:view >
+<h:form id="forme">
+
+
+
+
+<div id="corp">
+
+<div id="ProfilePage">
+    <div id="LeftCol">
+        <div id="Photo"><center><img src="image/admin.png"/></center></div>
+        <div id="ProfileOptions">
+        a
+        </div>
+    </div>
+
+    <div id="Info">
+   <p:outputPanel id="profile" >
+   
+   		 <p>
+            <strong> <h:outputLabel value="Login:" /></strong>
+            <span><h:outputLabel id="login" value="#{userBean.utilisateur.login}" /></span>
+        </p>
+        <p>
+            <strong> <h:outputLabel value="Nom:" /></strong>
+            <span><h:outputLabel id="nom" value="#{userBean.utilisateur.nom}"/></span>
+        </p>
+        <p>
+            <strong> <h:outputLabel value="Prénom:" /></strong>
+            <span><h:outputLabel id="prenom"  value="#{userBean.utilisateur.prenom}"/></span>
+        </p>
+        <p>
+            <strong> <h:outputLabel value="Adresse:" /></strong>
+            <span><h:outputLabel id="adresse" value="#{userBean.utilisateur.adresse}" /></span>
+        </p>
+        <p>
+            <strong> <h:outputLabel value="Compte:" /></strong>
+            <span><h:outputLabel id="compte" value="#{userBean.utilisateur.role}" /></span>
+        </p>
+       
+     </p:outputPanel>
+    </div>
+<center>
+
+<p:commandButton   oncomplete="PF('dlg').show()"  value="Modifier" 
+              icon="ui-icon-pencil" title="Modifier">
+              
+ </p:commandButton>
+               
+
+<p:dialog header="Dynamic Focus" widgetVar="dlg" focus="nom" modal="true" showEffect="pop">
+        <h:panelGrid columns="2" cellpadding="5">
+        
+        	 <h:outputLabel value="Login:" />
+            <p:inputText label="login" value="#{userBean.utilisateur.login}"/>
+        	
+            <h:outputLabel  value="Nom:" />
+            <p:inputText label="nom" value="#{userBean.utilisateur.nom}"/>
+ 
+            <h:outputLabel value="Prénom:" />
+            <p:inputText  label="prenom" value="#{userBean.utilisateur.prenom}" />
+ 
+            <h:outputLabel value="Adresse:" />
+            <p:inputText label="adresse" value="#{userBean.utilisateur.adresse}"/>
+            
+            <h:outputLabel  value="Compte:" />
+            <p:inputText label="compte" value="#{userBean.utilisateur.role}" />
+            
+            <p:commandButton  value="Modifier" action="#{userBean.modifier}" oncomplete="PF('dlg').show()" 
+            
+            ></p:commandButton>
+           
+        </h:panelGrid>
+    </p:dialog>
+                
+
+
+</center>
+
+
+
+    <!-- Needed because other elements inside ProfilePage have floats -->
+    <div style="clear:both"></div>
+</div>
+
+ </div>
+   </h:form>
+	</f:view>
+
+
+
+
+</h:body>
+</html>

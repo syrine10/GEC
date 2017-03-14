@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+ <title>Liste des Clients</title>
+
+ 
+</h:head>
+<h:body >  
+
+
+ <h:form id="liste">
+
+ <p:dataTable style="margin-bottom:40px" var="e" paginator="true" id="dataTable"
+ paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink}
+                  {CurrentPageReport} {NextPageLink} {LastPageLink}"
+                  value="#{clientBean.listeClient}" 
+                  widgetVar="clientTable"
+                 
+        >
+        
+		<f:facet name="header">
+           			 <p:outputPanel>
+                <h:outputText value="Rechercher :" />
+                <p:inputText id="globalFilter" onkeyup="PF('clientTable').filter()" style="width:150px" />
+            </p:outputPanel>
+ 				</f:facet>
+				<p:column filterBy="#{e.id}">
+					<f:facet name="header">
+						<h:outputLabel value="ID Client" />
+					</f:facet>
+					<h:outputText value="#{e.id}" />
+				</p:column>
+
+				<p:column filterBy="#{e.nom}" >
+					<f:facet name="header">
+						<h:outputLabel value="Client" />
+					</f:facet>
+					<h:outputText value="#{e.nom}" />
+				</p:column>
+				
+				<p:column filterBy="#{e.adresse}">
+					<f:facet name="header">
+						<h:outputLabel value="Adresse" />
+					</f:facet>
+					<h:outputText value="#{e.adresse}" />
+				</p:column>
+				
+				<p:column style="width:5%">
+            <p:commandButton  update=":liste:dataTable, :liste"  oncomplete="PF('ClientDialog').show()"
+            styleClass="c3"
+              icon="ui-icon-zoomin" title="Detail">
+                <f:setPropertyActionListener value="#{e}"
+                 target="#{clientBean.client}" />
+            </p:commandButton>
+           
+           
+           </p:column>
+				  
+<p:column style="width:5%">
+           <center> <p:commandButton  update=":liste:dataTable, :liste"  oncomplete="PF('ModifDialog').show()"
+            
+              icon="ui-icon-pencil" title="Modifier">
+                <f:setPropertyActionListener value="#{e}"
+                 target="#{clientBean.client}" />
+            </p:commandButton></center> 
+</p:column>
+             
+				<p:column style="width:5%">
+           <center> <p:commandButton  update=":liste:dataTable, :liste"  oncomplete="PF('SuppDialog').show()"
+            
+              icon="ui-icon-scissors" title="Supprimer">
+                <f:setPropertyActionListener value="#{e}"
+                 target="#{clientBean.client}" />
+            </p:commandButton></center> 
+</p:column>
+				
+
+
+</p:dataTable>
+		
+			<p:dialog header="Supprimer client" widgetVar="SuppDialog"
+  modal="true"  showEffect="fade">
+ 
+      <p:outputPanel id="clientSupp"
+       style="text-align:center;">
+            <p:panelGrid  columns="3" 
+            columnClasses="label,value">
+                
+  <h:outputLabel value="voullez vous supprimer ?" />
+  
+ 
+                
+       <p:commandButton  value="Oui"   actionListener="#{clientBean.supprimer}"
+        update=":liste:dataTable, :liste"  oncomplete="PF('SuppDialog').hide()">
+      <f:setPropertyActionListener value="#{clientBean.client}" target="#{clientBean.client}"></f:setPropertyActionListener>               
+      </p:commandButton>  
+      
+     <p:commandButton  value="Non"  onclick ="PF('SuppDialog').hide()">    
+                </p:commandButton>
+             
+</p:panelGrid></p:outputPanel></p:dialog>
+
+<p:dialog header="Detail d'un Client" widgetVar="ClientDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+        <p:outputPanel id="clientDetail" style="text-align:center;">
+            <p:panelGrid  columns="2"  columnClasses="label,value">
+                <f:facet name="header">
+                   
+                </f:facet>
+ 
+                <h:outputText value="Id:" />
+                <h:outputText value="#{clientBean.client.id}" />
+ 
+                <h:outputText value="Nom:" />
+                <h:outputText value="#{clientBean.client.nom}" />
+ 
+                <h:outputText value="Adresse:" />
+                <h:outputText value="#{clientBean.client.adresse}" />
+ 
+                
+            </p:panelGrid>
+        </p:outputPanel>
+    </p:dialog>
+
+
+<p:dialog header="Modifier un Client" widgetVar="ModifDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+        <p:outputPanel id="clientModif" style="text-align:center;">
+            <p:panelGrid  columns="2"  columnClasses="label,value">
+                <f:facet name="header">
+                   
+                </f:facet>
+ 
+                <h:outputText value="Id:" />
+                <h:inputText value="#{clientBean.client.id}" />
+ 
+                <h:outputText value="Nom:" />
+                <h:inputText value="#{clientBean.client.nom}" />
+ 
+                <h:outputText value="Adresse:" />
+                <h:inputText value="#{clientBean.client.adresse}" />
+ 
+                <f:facet name="footer">
+					<center>
+                	<p:commandButton  value="Modifier"   actionListener="#{clientBean.modifier}"
+        update=":liste:dataTable, :liste"  oncomplete="PF('ModifDialog').hide()">
+     				 <f:setPropertyActionListener value="#{clientBean.client}" target="#{clientBean.client}"></f:setPropertyActionListener>               
+     				</p:commandButton> 
+      				</center>
+      			</f:facet> 
+            </p:panelGrid>
+        </p:outputPanel>
+    </p:dialog>
+
+ 
+ </h:form>
+ 
+ 
+ </h:body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+ <title>Modifier mot de passe</title>
+ <link rel="stylesheet" href="css/style3.css"/>
+  
+
+<link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet">
+</link>
+</h:head>
+<h:body>
+<h:form id="forme">
+<div class="container">
+      <div class="row">
+      
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
+   
+   
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">#{userBean.utilisateur.login}</h3>
+            </div>
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="http://babyinfoforyou.com/wp-content/uploads/2014/10/avatar-300x300.png" class="img-circle img-responsive"/> </div>
+                
+               
+                <div class=" col-md-9 col-lg-9 "> 
+                  <table class="table table-user-information">
+                    <tbody>
+                      <tr>
+                        <td> <h:outputLabel value="Nom:" /></td>
+                        <td><h:outputLabel id="nom" value="#{userBean.utilisateur.nom}"/></td>
+                      </tr>
+                      <tr>
+                        <td><h:outputLabel value="Prénom:" /></td>
+                        <td><h:outputLabel id="prenom"  value="#{userBean.utilisateur.prenom}"/></td>
+                      </tr>
+                      <tr>
+                        <td> <h:outputLabel value="Adresse:" /></td>
+                        <td><h:outputLabel id="adresse" value="#{userBean.utilisateur.adresse}" /></td>
+                      </tr>
+                   
+                         <tr>
+                             <tr>
+                        <td> <h:outputLabel value="Compte:" /></td>
+                        <td><h:outputLabel id="compte" value="#{userBean.utilisateur.role}" /></td>
+                      </tr>
+                       
+                           
+                      </tr>
+                     
+                    </tbody>
+                  </table>
+                  
+                 
+                </div>
+              </div>
+            </div>
+                 <div class="panel-footer">
+                        <center>
+                        
+				<p:commandButton   oncomplete="PF('dlg').show()"  value="Modifier" 
+              icon="ui-icon-pencil" title="Modifier">
+              
+ </p:commandButton></center>
+ 
+ 
+ <p:dialog header="Modifier le profile" widgetVar="dlg" modal="true" showEffect="fade"  focus="nom" hideEffect="fade" resizable="false">
+        <p:outputPanel id="UserModif" style="text-align:center;">
+            
+               
+ 
+      <h:panelGrid columns="2" cellpadding="5">
+        
+        	 <h:outputLabel value="Login:" />
+            <p:inputText label="login" value="#{userBean.utilisateur.login}"/>
+        	
+            <h:outputLabel  value="Nom:" />
+            <p:inputText label="nom" value="#{userBean.utilisateur.nom}"/>
+ 
+            <h:outputLabel value="Prénom:" />
+            <p:inputText  label="prenom" value="#{userBean.utilisateur.prenom}" />
+ 
+            <h:outputLabel value="Adresse:" />
+            <p:inputText label="adresse" value="#{userBean.utilisateur.adresse}"/>
+            
+            <h:outputLabel  value="Compte:" />
+            <p:inputText label="compte" value="#{userBean.utilisateur.role}" />
+            
+                 <br/>				
+      			<f:facet name="footer">
+					<center>
+            <p:commandButton  value="Modifier" action="#{userBean.modifier}" oncomplete="PF('dlg').show()" 
+            
+            ></p:commandButton>
+           </center>
+      			</f:facet> 
+        </h:panelGrid>
+        </p:outputPanel>
+    </p:dialog>
+                    </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+                
+    
+    </h:form>
+</h:body>
+</html>

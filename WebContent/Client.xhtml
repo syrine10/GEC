@@ -1,0 +1,344 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui"
+    >
+<h:head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1"/>
+    <title></title>
+    <!-- Font Awesome -->
+     <link rel="stylesheet" href="css/font-awesome.min.css"/>
+    <!-- CSS -->
+    <link href="css/compiled.min.css" rel="stylesheet"/>
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,800,800italic,400italic|Adamina' rel='stylesheet' type='text/css'/>
+
+    <style>
+        .bg-skin-lp {
+            background-image: url('css/image.jpg'); 
+            background-size: cover; 
+            background-repeat: no-repeat; 
+            background-position: center center; 
+            background-attachment: fixed;
+        }
+        img{
+        width: 50%;
+        heigth: 30%;
+        }
+        .img{
+         width: 78%;
+        heigth: 30%;
+        }
+        
+    </style>
+
+</h:head>
+
+<h:body class="fixed-sn navy-blue-skin bg-skin-lp" >
+    <!--Double navigation-->
+    <header>
+        <!-- Sidebar navigation -->
+        <ul id="slide-out" class="side-nav fixed sn-bg-1 custom-scrollbar">
+            <!-- Logo -->
+            <li>
+                <div class="logo-wrapper waves-light">
+                    <a href="NewMenu.xhtml"><img src="image/logo.png" class="img"/></a>
+                </div>
+            </li>
+            <!--/. Logo -->
+            <!--Social-->
+            <div></div>
+            <!--/Social-->
+            <!--Search Form-->
+            <li>
+                <form class="search-form" role="search">
+                    <div class="form-group waves-light">
+                        <input type="text" class="form-control" placeholder="Search"/>
+                    </div>
+                </form>
+            </li>
+            <!--/.Search Form-->
+            <!-- Side navigation links -->
+            <li>
+                <ul class="collapsible collapsible-accordion">
+                    <li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-chevron-right"></i>Nouveau<i class="fa fa-angle-down rotate-icon"></i></a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li><a href="NewClient.xhtml" class="waves-effect">Client</a>
+                                </li>
+                                <li><a href="#" class="waves-effect">Data Centre</a>
+                                </li>
+                                <li><a href="#" class="waves-effect">Equipement</a>
+                                </li>
+                                 <li><a href="#" class="waves-effect">Armoire</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-hand-pointer-o"></i> Instruction<i class="fa fa-angle-down rotate-icon"></i></a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li><a href="#" class="waves-effect">For bloggers</a>
+                                </li>
+                                <li><a href="#" class="waves-effect">For authors</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-eye"></i> About<i class="fa fa-angle-down rotate-icon"></i></a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li><a href="#" class="waves-effect">Introduction</a>
+                                </li>
+                                <li><a href="#" class="waves-effect">Monthly meetings</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-envelope-o"></i> Contact me<i class="fa fa-angle-down rotate-icon"></i></a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li><a href="#" class="waves-effect">FAQ</a>
+                                </li>
+                                <li><a href="#" class="waves-effect">Write a message</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <!--/. Side navigation links -->
+            <div class="sidenav-bg mask-strong"></div>
+        </ul>
+        <!--/. Sidebar navigation -->
+        <!-- Navbar -->
+        <nav class="navbar fixed-top navbar-toggleable-md navbar-dark scrolling-navbar double-nav">
+            <!-- SideNav slide-out button -->
+            <div class="float-xs-left">
+                <a href="#" data-activates="slide-out" class="button-collapse"><i class="fa fa-bars"></i></a>
+            </div>
+            <!-- Breadcrumb-->
+            <div class="breadcrumb-dn mr-auto">
+                <p><img src="image/logo.png"/></p>
+            </div>
+            <ul class="nav navbar-nav ml-auto flex-row">
+               
+                <li class="nav-item">
+                    <a class="nav-link" href="Compte.xhtml"><i class="fa fa-user"></i> <span class="hidden-sm-down">#{userBean.utilisateur.login}</span></a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Paramètres
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="#" >Changer le mot de passe</a>
+                        <a class="dropdown-item" href="ListUser.xhtml">Gestion des utilisateurs</a>
+                         <a class="dropdown-item" href="ajoutUser.xhtml">Nouveau utilisateur</a>
+                       <h:form><h:commandLink  styleClass="dropdown-item" action="#{userBean.logout}">Déconnexion</h:commandLink></h:form> 
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <!-- /.Navbar -->
+    </header>
+    <!--/.Double navigation-->
+    
+    <!--Main layout-->
+    <main>
+        <div class="container-fluid text-center" style="height: 800px;">
+            <a class="btn btn-primary btn-lg" href="ListDataCenter.xhtml">Data Centre</a>
+            <a class="btn btn-secondary btn-lg" href="Client.xhtml" id="client">Client</a>
+            <a class="btn btn-default btn-lg" href="CarteGraphique.xhtml" id="cte">Carte graphique</a>
+            
+ 
+
+ <h:form id="liste">
+
+ <p:dataTable style="margin-bottom:40px" var="e" paginator="true" id="dataTable"
+ paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink}
+                  {CurrentPageReport} {NextPageLink} {LastPageLink}"
+                  value="#{clientBean.listeClient}" 
+                  widgetVar="clientTable"
+                 
+        >
+        
+		<f:facet name="header">
+           			 <p:outputPanel>
+                <h:outputText value="Rechercher :" />
+                <p:inputText id="globalFilter" onkeyup="PF('clientTable').filter()" style="width:150px" />
+            </p:outputPanel>
+ 				</f:facet>
+				<p:column filterBy="#{e.id}">
+					<f:facet name="header">
+						<h:outputLabel value="ID Client" />
+					</f:facet>
+					<h:outputText value="#{e.id}" />
+				</p:column>
+
+				<p:column filterBy="#{e.nom}" >
+					<f:facet name="header">
+						<h:outputLabel value="Client" />
+					</f:facet>
+					<h:outputText value="#{e.nom}" />
+				</p:column>
+				
+				<p:column filterBy="#{e.adresse}">
+					<f:facet name="header">
+						<h:outputLabel value="Adresse" />
+					</f:facet>
+					<h:outputText value="#{e.adresse}" />
+				</p:column>
+				
+				<p:column style="width:5%">
+            <p:commandButton  update=":liste:dataTable, :liste"  oncomplete="PF('ClientDialog').show()"
+            styleClass="c3"
+              icon="ui-icon-zoomin" title="Detail">
+                <f:setPropertyActionListener value="#{e}"
+                 target="#{clientBean.client}" />
+            </p:commandButton>
+           
+           
+           </p:column>
+				  
+<p:column style="width:5%">
+           <center> <p:commandButton  update=":liste:dataTable, :liste"  oncomplete="PF('ModifDialog').show()"
+            
+              icon="ui-icon-pencil" title="Modifier">
+                <f:setPropertyActionListener value="#{e}"
+                 target="#{clientBean.client}" />
+            </p:commandButton></center> 
+</p:column>
+             
+				<p:column style="width:5%">
+           <center> <p:commandButton  update=":liste:dataTable, :liste"  oncomplete="PF('SuppDialog').show()"
+            
+              icon="ui-icon-scissors" title="Supprimer">
+                <f:setPropertyActionListener value="#{e}"
+                 target="#{clientBean.client}" />
+            </p:commandButton></center> 
+</p:column>
+				
+
+
+</p:dataTable>
+		
+			<p:dialog header="Supprimer client" widgetVar="SuppDialog" hideEffect="explode"
+  modal="true"  showEffect="fade">
+ 
+      <p:outputPanel id="clientSupp"
+       style="text-align:center;">
+            <p:panelGrid  columns="3" 
+            columnClasses="label,value">
+                
+  <h:outputLabel value="voullez vous supprimer ?" />
+  
+ 
+                
+       <p:commandButton  value="Oui"   actionListener="#{clientBean.supprimer}"
+        update=":liste:dataTable, :liste"  oncomplete="PF('SuppDialog').hide()">
+      <f:setPropertyActionListener value="#{clientBean.client}" target="#{clientBean.client}"></f:setPropertyActionListener>               
+      </p:commandButton>  
+      
+     <p:commandButton  value="Non"  onclick ="PF('SuppDialog').hide()">    
+                </p:commandButton>
+             
+</p:panelGrid></p:outputPanel></p:dialog>
+
+<p:dialog header="Detail d'un Client" widgetVar="ClientDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+        <p:outputPanel id="clientDetail" style="text-align:center;">
+            <p:panelGrid  columns="2"  columnClasses="label,value">
+                <f:facet name="header">
+                   
+                </f:facet>
+ 
+                <h:outputText value="Id:" />
+                <h:outputText value="#{clientBean.client.id}" />
+ 
+                <h:outputText value="Nom:" />
+                <h:outputText value="#{clientBean.client.nom}" />
+ 
+                <h:outputText value="Adresse:" />
+                <h:outputText value="#{clientBean.client.adresse}" />
+ 
+                
+            </p:panelGrid>
+        </p:outputPanel>
+    </p:dialog>
+
+
+<p:dialog header="Modifier un Client" widgetVar="ModifDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+        <p:outputPanel id="clientModif" style="text-align:center;">
+            <p:panelGrid  columns="2"  columnClasses="label,value">
+                <f:facet name="header">
+                   
+                </f:facet>
+ 
+                <h:outputText value="Id:" />
+                <h:inputText value="#{clientBean.client.id}" />
+ 
+                <h:outputText value="Nom:" />
+                <h:inputText value="#{clientBean.client.nom}" />
+ 
+                <h:outputText value="Adresse:" />
+                <h:inputText value="#{clientBean.client.adresse}" />
+ 
+                <f:facet name="footer">
+					<center>
+                	<p:commandButton  value="Modifier"   actionListener="#{clientBean.modifier}"
+        update=":liste:dataTable, :liste"  oncomplete="PF('ModifDialog').hide()">
+     				 <f:setPropertyActionListener value="#{clientBean.client}" target="#{clientBean.client}"></f:setPropertyActionListener>               
+     				</p:commandButton> 
+      				</center>
+      			</f:facet> 
+            </p:panelGrid>
+        </p:outputPanel>
+    </p:dialog>
+
+ 
+ </h:form>
+       
+        </div>
+    </main>
+    <!--/Main layout-->
+   
+    
+    
+
+    <!--Footer-->
+    <footer class="page-footer center-on-small-only">
+
+     
+        <!--Copyright-->
+        <div class="footer-copyright">
+            <div class="container-fluid">
+                © 2017 Copyright: 
+
+            </div>
+        </div>
+        <!--/.Copyright-->
+
+    </footer>
+    <!--/.Footer-->
+
+    <!-- SCRIPTS -->
+    <script type="text/javascript" src="js/compiled.min.js"></script>
+    <script >
+    var $j = jQuery.noConflict(true);
+    $j(".button-collapse").sideNav();
+        
+    var el = document.querySelector('.custom-scrollbar');
+    Ps.initialize(el);
+   
+    </script>
+ 
+   
+    </h:body>
+
+</html>

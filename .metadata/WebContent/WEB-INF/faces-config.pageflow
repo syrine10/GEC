@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf14887996432660" configfile="/GEC/WebContent/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="Authentification.xhtml" x="122" y="178" id="pf14888102330011" referenceLink="/0/@navigationRule.0/@fromViewId|" path="/Authentification.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="mapp.xhtml" x="338" y="178" id="pf14888102330613" referenceLink="/0/@navigationRule.0/@navigationCase.0/@toViewId|" path="/mapp.xhtml"/>
+</pageflow:Pageflow>

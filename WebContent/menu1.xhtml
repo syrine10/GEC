@@ -1,0 +1,150 @@
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui"
+    >
+    
+<h:head>
+
+
+  <meta name="viewport" content="initial-scale=1.0"/>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="css/style1.css"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,800,800italic,400italic|Adamina' rel='stylesheet' type='text/css'/>
+		
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 100%;
+        width: 100%;
+      }
+    </style>
+    
+</h:head>
+<h:body>   
+<f:view >
+ 
+<div class="navbar">
+	<a class="brand" href="#"><img src="image/logo4.png"/></a>
+	<!--MOBILE-->
+	<div class="navbar-mobile hidden-desktop">	
+		<ul class="	nav">
+		<li class="mobile-dropdown"><i class="icon-reorder"></i>	
+			<div class="mobile-menu">
+				<div class="menu-wrapper">
+					<ul class="mobile-nav">
+						               <li><a href="mapp.xhtml">Home</a></li>
+		<li class="dropdown">
+			<a href="ajoutUser.xhtml" class="dropdown-toggle" data-toggle="dropdown">DataCenter<span class="icon-angle-down"></span></a>
+			
+              </li>
+            
+		<li class="dropdown">
+			<a href="listeClient.xhtml" class="dropdown-toggle" data-toggle="dropdown">Client<span class="icon-angle-down"></span></a>
+			
+		</li>
+		<li class="dropdown">
+			<a href="mapp.xhtml" class="dropdown-toggle" data-toggle="dropdown">Map<span class="icon-angle-down"></span></a>
+			<!-- <ul class="dropdown-menu">
+				<li><a href="/mapp">View Streams</a></li>
+				<li><a href="/viewAlbums">View Albums</a></li>
+				<li><a href="/viewGroups">View Groups</a></li>
+			</ul> -->
+		</li>
+		<li class="item"><h:form>
+<h:commandLink action="#{userBean.runTest}" > Accés à distance</h:commandLink></h:form></li>
+					</ul>
+				</div>
+			</div>
+		</li>
+		<li class="search"><img src="image/s4.png" />
+				<form class="navbar-search" _lpchecked="1"><input type="search" class="search-query typeahead" data-provide="typeahead" placeholder="Search"></input></form>
+				<a class="icon-search"></a>
+		</li>
+		<li class="admin mobile-dropdown">
+		<a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-user"></i> <img src="image/user1.png" />   #{userBean.utilisateur.login}  <span class="icon-angle-down"></span></a>
+			<div class="mobile-admin">
+				<div class="admin-wrapper">
+					<ul class="mobile-nav">
+					<li><a href="profile.xhtml">Profile</a></li>
+				<li><a href="modifierPwd.xhtml">Manage Users</a></li>
+				<li><a href="/changepassword">Change Password</a></li>
+				<li><h:form><h:commandLink action="#{userBean.logout}">Log Out</h:commandLink></h:form></li>
+					</ul>
+				</div>
+			</div>
+		</li>
+		</ul>
+	</div>
+	<!--MOBILE-->
+	<div class="navbar-inner visible-desktop">
+		<ul class="nav">
+               <li><a href="mapp.xhtml">Home</a></li>
+		<li class="dropdown">
+			<a href="ajoutUser.xhtml" class="dropdown-toggle" data-toggle="dropdown">DataCenter<span class="icon-angle-down"></span></a>
+			
+              </li>
+            
+		<li class="dropdown">
+			<a href="listeClient.xhtml" class="dropdown-toggle" data-toggle="dropdown">Client<span class="icon-angle-down"></span></a>
+			
+		</li>
+		<li class="dropdown">
+			<a href="mapp.xhtml" class="dropdown-toggle" data-toggle="dropdown">Map<span class="icon-angle-down"></span></a>
+			<!-- <ul class="dropdown-menu">
+				<li><a href="mapp.xhtml">View Streams</a></li>
+				<li><a href="/viewAlbums">View Albums</a></li>
+				<li><a href="/viewGroups">View Groups</a></li>
+			</ul> -->
+		</li>
+		<li class="item"><h:form>
+<h:commandLink action="#{userBean.runTest}" > Accés à distance</h:commandLink></h:form></li>
+		<li class="search">
+		<img src="image/s4.png" class="item"/>
+			<form class="navbar-search" _lpchecked="1">	<input type="search" class="search-query typeahead" data-provide="typeahead" placeholder="Search" ></input></form>
+				<a class="icon-search"></a>
+		</li>
+		
+		
+		 <li class="admin">
+		<a href="#" >
+		<span class="notif">Notification</span>
+		<span class="bubble">0</span></a>
+	</li>
+		
+		
+		<li class="admin">
+		<a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-user"></i> <img src="image/user1.png" />   #{userBean.utilisateur.login} <span class="icon-angle-down" ></span></a>
+			<ul class="dropdown-menu">
+				<li><a href="profile.xhtml">Profile</a></li>
+				
+				<li><a href="/manageUsers">Manage Users</a></li>
+				<li><a href="modifierPwd.xhtml">Change Password</a></li>
+				<li> <h:form><h:commandLink action="#{userBean.logout}">Log Out</h:commandLink></h:form> </li>
+			</ul>
+		</li>
+		
+	</ul>
+
+		
+	</div>
+	</div>
+
+	
+
+	</f:view>
+
+
+
+
+</h:body>
+</ui:composition>
+

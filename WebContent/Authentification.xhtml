@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>Authentification</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css" media="screen"/>
+ <link rel="icon" type="image/x-icon" href="image/logo.png" />
+
+</h:head>
+<h:body>
+	<f:view>
+	<img src="image/logo2.png"  style="width:350px;height:100px;margin-top:5%;margin-left:470px;position:fixe;"/>
+	
+		<h:form id="aut"   >
+		
+
+			<p:growl id="growl" sticky="true" showDetail="true" life="3000" />
+
+			<p:dialog   header="Authentification" widgetVar="dlg" visible="true"	resizable="false">
+				<h:panelGrid columns="2" cellpadding="5" >
+					<h:outputLabel for="username" value="Username:" />
+					<p:inputText id="username" value="#{userBean.utilisateur.login}" required="true" label="username" requiredMessage="Nom oublie" />
+					<h:outputLabel for="password" value="Password:" />
+					
+       
+ <p:keyboard id="password" value="#{userBean.utilisateur.password}" password="true" keypadOnly="true" requiredMessage="Mot de passe oublie" />
+    
+					<center>
+						<p:selectOneRadio id="console" value="#{userBean.utilisateur.role}" required="true"	requiredMessage="Choisir un type de utilisateur">
+							<f:selectItem itemLabel="Comptoir" itemValue="comptoir" />
+
+							<f:selectItem itemLabel="Administrateur" itemValue="administrateur" />
+						</p:selectOneRadio>
+					</center>
+					<p:messages autoUpdate="true" closable="true" />
+					<f:facet name="footer">
+						<center>
+							<p:commandButton value="Login" update="growl" action="#{userBean.loginProject}" />
+						</center>
+					</f:facet>
+
+				</h:panelGrid>
+			</p:dialog>
+		</h:form>
+
+
+
+	</f:view>
+</h:body>
+</html>
