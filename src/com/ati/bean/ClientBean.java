@@ -29,7 +29,9 @@ public class ClientBean {
      private List<Client> listeClient=new ArrayList<Client>();
  	private ClientDAO daoClient =new ClientDAO();
 	
- 	
+ 	/*
+ 	 * new comment from syrine tajouri
+ 	 */
  	
 	public List<Client> getSelectedClient() {
 		return selectedClient;
