@@ -14,9 +14,13 @@ public class Switch implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	private int id;
+	private int idEquipInArm;
+
+	private String affectation;
 
 	private String nom;
+
+	private String type;
 
 	//bi-directional one-to-one association to Equipementinarm
 	@OneToOne
@@ -26,12 +30,20 @@ public class Switch implements Serializable {
 	public Switch() {
 	}
 
-	public int getId() {
-		return this.id;
+	public int getIdEquipInArm() {
+		return this.idEquipInArm;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setIdEquipInArm(int idEquipInArm) {
+		this.idEquipInArm = idEquipInArm;
+	}
+
+	public String getAffectation() {
+		return this.affectation;
+	}
+
+	public void setAffectation(String affectation) {
+		this.affectation = affectation;
 	}
 
 	public String getNom() {
@@ -40,6 +52,14 @@ public class Switch implements Serializable {
 
 	public void setNom(String nom) {
 		this.nom = nom;
+	}
+
+	public String getType() {
+		return this.type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
 	}
 
 	public Equipementinarm getEquipementinarm() {

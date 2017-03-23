@@ -14,9 +14,13 @@ public class Camera implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	private int id;
+	private int idEquipOutArm;
 
-	private String nom;
+	private String ip;
+
+	private String marque;
+
+	private int resolution;
 
 	//bi-directional one-to-one association to Equipementoutarm
 	@OneToOne
@@ -26,20 +30,36 @@ public class Camera implements Serializable {
 	public Camera() {
 	}
 
-	public int getId() {
-		return this.id;
+	public int getIdEquipOutArm() {
+		return this.idEquipOutArm;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setIdEquipOutArm(int idEquipOutArm) {
+		this.idEquipOutArm = idEquipOutArm;
 	}
 
-	public String getNom() {
-		return this.nom;
+	public String getIp() {
+		return this.ip;
 	}
 
-	public void setNom(String nom) {
-		this.nom = nom;
+	public void setIp(String ip) {
+		this.ip = ip;
+	}
+
+	public String getMarque() {
+		return this.marque;
+	}
+
+	public void setMarque(String marque) {
+		this.marque = marque;
+	}
+
+	public int getResolution() {
+		return this.resolution;
+	}
+
+	public void setResolution(int resolution) {
+		this.resolution = resolution;
 	}
 
 	public Equipementoutarm getEquipementoutarm() {

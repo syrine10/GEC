@@ -19,20 +19,29 @@ public class Client implements Serializable {
 
 	private String adresse;
 
+	private int codePostale;
+
+	private String contact;
+
+	private String contrat;
+
+	private int fax;
+
 	private String nom;
 
-	//bi-directional many-to-many association to Datacenter
-	@ManyToMany
-	@JoinTable(
-		name="clidata"
-		, joinColumns={
-			@JoinColumn(name="idClient")
-			}
-		, inverseJoinColumns={
-			@JoinColumn(name="idData")
-			}
-		)
-	private List<Datacenter> datacenters;
+	private int reference;
+
+	private int telephone;
+
+	private String type;
+
+	private String typePrestation;
+
+	private String ville;
+
+	//bi-directional many-to-one association to Port
+	@OneToMany(mappedBy="client")
+	private List<Port> ports;
 
 	public Client() {
 	}
@@ -53,6 +62,38 @@ public class Client implements Serializable {
 		this.adresse = adresse;
 	}
 
+	public int getCodePostale() {
+		return this.codePostale;
+	}
+
+	public void setCodePostale(int codePostale) {
+		this.codePostale = codePostale;
+	}
+
+	public String getContact() {
+		return this.contact;
+	}
+
+	public void setContact(String contact) {
+		this.contact = contact;
+	}
+
+	public String getContrat() {
+		return this.contrat;
+	}
+
+	public void setContrat(String contrat) {
+		this.contrat = contrat;
+	}
+
+	public int getFax() {
+		return this.fax;
+	}
+
+	public void setFax(int fax) {
+		this.fax = fax;
+	}
+
 	public String getNom() {
 		return this.nom;
 	}
@@ -61,12 +102,66 @@ public class Client implements Serializable {
 		this.nom = nom;
 	}
 
-	public List<Datacenter> getDatacenters() {
-		return this.datacenters;
+	public int getReference() {
+		return this.reference;
 	}
 
-	public void setDatacenters(List<Datacenter> datacenters) {
-		this.datacenters = datacenters;
+	public void setReference(int reference) {
+		this.reference = reference;
+	}
+
+	public int getTelephone() {
+		return this.telephone;
+	}
+
+	public void setTelephone(int telephone) {
+		this.telephone = telephone;
+	}
+
+	public String getType() {
+		return this.type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public String getTypePrestation() {
+		return this.typePrestation;
+	}
+
+	public void setTypePrestation(String typePrestation) {
+		this.typePrestation = typePrestation;
+	}
+
+	public String getVille() {
+		return this.ville;
+	}
+
+	public void setVille(String ville) {
+		this.ville = ville;
+	}
+
+	public List<Port> getPorts() {
+		return this.ports;
+	}
+
+	public void setPorts(List<Port> ports) {
+		this.ports = ports;
+	}
+
+	public Port addPort(Port port) {
+		getPorts().add(port);
+		port.setClient(this);
+
+		return port;
+	}
+
+	public Port removePort(Port port) {
+		getPorts().remove(port);
+		port.setClient(null);
+
+		return port;
 	}
 
 }

@@ -17,24 +17,28 @@ public class Equipement implements Serializable {
 	@Id
 	private int id;
 
+	private String nom;
+
+	private int numSerie;
+
+	private byte stock;
+
 	//bi-directional many-to-one association to Datacenter
 	@ManyToOne
 	@JoinColumn(name="idData")
 	private Datacenter datacenter;
 
+	//bi-directional one-to-one association to Equipementinarm
+	@OneToOne(mappedBy="equipement")
+	private Equipementinarm equipementinarm;
+
+	//bi-directional one-to-one association to Equipementoutarm
+	@OneToOne(mappedBy="equipement")
+	private Equipementoutarm equipementoutarm;
+
 	//bi-directional many-to-one association to Port
 	@OneToMany(mappedBy="equipement")
 	private List<Port> ports;
-
-	//bi-directional one-to-one association to Equipementoutarm
-	@OneToOne
-	@JoinColumn(name="id")
-	private Equipementoutarm equipementoutarm;
-
-	//bi-directional one-to-one association to Equipementinarm
-	@OneToOne
-	@JoinColumn(name="id")
-	private Equipementinarm equipementinarm;
 
 	public Equipement() {
 	}
@@ -47,12 +51,52 @@ public class Equipement implements Serializable {
 		this.id = id;
 	}
 
+	public String getNom() {
+		return this.nom;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+	public int getNumSerie() {
+		return this.numSerie;
+	}
+
+	public void setNumSerie(int numSerie) {
+		this.numSerie = numSerie;
+	}
+
+	public byte getStock() {
+		return this.stock;
+	}
+
+	public void setStock(byte stock) {
+		this.stock = stock;
+	}
+
 	public Datacenter getDatacenter() {
 		return this.datacenter;
 	}
 
 	public void setDatacenter(Datacenter datacenter) {
 		this.datacenter = datacenter;
+	}
+
+	public Equipementinarm getEquipementinarm() {
+		return this.equipementinarm;
+	}
+
+	public void setEquipementinarm(Equipementinarm equipementinarm) {
+		this.equipementinarm = equipementinarm;
+	}
+
+	public Equipementoutarm getEquipementoutarm() {
+		return this.equipementoutarm;
+	}
+
+	public void setEquipementoutarm(Equipementoutarm equipementoutarm) {
+		this.equipementoutarm = equipementoutarm;
 	}
 
 	public List<Port> getPorts() {
@@ -75,22 +119,6 @@ public class Equipement implements Serializable {
 		port.setEquipement(null);
 
 		return port;
-	}
-
-	public Equipementoutarm getEquipementoutarm() {
-		return this.equipementoutarm;
-	}
-
-	public void setEquipementoutarm(Equipementoutarm equipementoutarm) {
-		this.equipementoutarm = equipementoutarm;
-	}
-
-	public Equipementinarm getEquipementinarm() {
-		return this.equipementinarm;
-	}
-
-	public void setEquipementinarm(Equipementinarm equipementinarm) {
-		this.equipementinarm = equipementinarm;
 	}
 
 }

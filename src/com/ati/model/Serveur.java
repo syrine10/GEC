@@ -14,9 +14,17 @@ public class Serveur implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	private int id;
+	private int idEquipInArm;
+
+	private String capaciteStockage;
+
+	private int cpu;
+
+	private int memoire;
 
 	private String nom;
+
+	private String taille;
 
 	//bi-directional one-to-one association to Equipementinarm
 	@OneToOne
@@ -26,12 +34,36 @@ public class Serveur implements Serializable {
 	public Serveur() {
 	}
 
-	public int getId() {
-		return this.id;
+	public int getIdEquipInArm() {
+		return this.idEquipInArm;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setIdEquipInArm(int idEquipInArm) {
+		this.idEquipInArm = idEquipInArm;
+	}
+
+	public String getCapaciteStockage() {
+		return this.capaciteStockage;
+	}
+
+	public void setCapaciteStockage(String capaciteStockage) {
+		this.capaciteStockage = capaciteStockage;
+	}
+
+	public int getCpu() {
+		return this.cpu;
+	}
+
+	public void setCpu(int cpu) {
+		this.cpu = cpu;
+	}
+
+	public int getMemoire() {
+		return this.memoire;
+	}
+
+	public void setMemoire(int memoire) {
+		this.memoire = memoire;
 	}
 
 	public String getNom() {
@@ -40,6 +72,14 @@ public class Serveur implements Serializable {
 
 	public void setNom(String nom) {
 		this.nom = nom;
+	}
+
+	public String getTaille() {
+		return this.taille;
+	}
+
+	public void setTaille(String taille) {
+		this.taille = taille;
 	}
 
 	public Equipementinarm getEquipementinarm() {

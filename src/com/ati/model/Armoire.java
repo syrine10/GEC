@@ -1,4 +1,4 @@
- package com.ati.model;
+package com.ati.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
@@ -17,6 +17,12 @@ public class Armoire implements Serializable {
 	@Id
 	private int id;
 
+	private String marque;
+
+	private String nom;
+
+	private String taille;
+
 	//bi-directional many-to-one association to Equipementinarm
 	@OneToMany(mappedBy="armoire")
 	private List<Equipementinarm> equipementinarms;
@@ -30,6 +36,30 @@ public class Armoire implements Serializable {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public String getMarque() {
+		return this.marque;
+	}
+
+	public void setMarque(String marque) {
+		this.marque = marque;
+	}
+
+	public String getNom() {
+		return this.nom;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+	public String getTaille() {
+		return this.taille;
+	}
+
+	public void setTaille(String taille) {
+		this.taille = taille;
 	}
 
 	public List<Equipementinarm> getEquipementinarms() {

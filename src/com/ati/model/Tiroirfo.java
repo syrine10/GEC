@@ -14,7 +14,7 @@ public class Tiroirfo implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	private int id;
+	private int idEquipOutArm;
 
 	//bi-directional one-to-one association to Equipementoutarm
 	@OneToOne
@@ -24,12 +24,12 @@ public class Tiroirfo implements Serializable {
 	public Tiroirfo() {
 	}
 
-	public int getId() {
-		return this.id;
+	public int getIdEquipOutArm() {
+		return this.idEquipOutArm;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setIdEquipOutArm(int idEquipOutArm) {
+		this.idEquipOutArm = idEquipOutArm;
 	}
 
 	public Equipementoutarm getEquipementoutarm() {

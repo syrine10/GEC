@@ -16,6 +16,19 @@ public class Port implements Serializable {
 	@Id
 	private int id;
 
+	private String capacite;
+
+	private String ip;
+
+	private String type;
+
+	private String typeModule;
+
+	//bi-directional many-to-one association to Client
+	@ManyToOne
+	@JoinColumn(name="idClient")
+	private Client client;
+
 	//bi-directional many-to-one association to Equipement
 	@ManyToOne
 	@JoinColumn(name="idEquip")
@@ -30,6 +43,46 @@ public class Port implements Serializable {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public String getCapacite() {
+		return this.capacite;
+	}
+
+	public void setCapacite(String capacite) {
+		this.capacite = capacite;
+	}
+
+	public String getIp() {
+		return this.ip;
+	}
+
+	public void setIp(String ip) {
+		this.ip = ip;
+	}
+
+	public String getType() {
+		return this.type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public String getTypeModule() {
+		return this.typeModule;
+	}
+
+	public void setTypeModule(String typeModule) {
+		this.typeModule = typeModule;
+	}
+
+	public Client getClient() {
+		return this.client;
+	}
+
+	public void setClient(Client client) {
+		this.client = client;
 	}
 
 	public Equipement getEquipement() {

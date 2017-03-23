@@ -3,11 +3,14 @@
 	<persistence-unit name="GEC">
 		<class>com.ati.model.Armoire</class>
 		<class>com.ati.model.Camera</class>
+		<class>com.ati.model.Carte</class>
 		<class>com.ati.model.Client</class>
+		<class>com.ati.model.Climatiseur</class>
 		<class>com.ati.model.Datacenter</class>
 		<class>com.ati.model.Equipement</class>
 		<class>com.ati.model.Equipementinarm</class>
 		<class>com.ati.model.Equipementoutarm</class>
+		<class>com.ati.model.Firewall</class>
 		<class>com.ati.model.Onduleur</class>
 		<class>com.ati.model.Port</class>
 		<class>com.ati.model.Routeur</class>
@@ -15,7 +18,7 @@
 		<class>com.ati.model.Switch</class>
 		<class>com.ati.model.Tiroirfo</class>
 		<class>com.ati.model.User</class>
-	
+		
 	
 	
 	

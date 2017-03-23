@@ -16,22 +16,31 @@ public class Equipementinarm implements Serializable {
 	@Id
 	private int idEquip;
 
+	private String ip;
+
+	private String marque;
+
 	//bi-directional many-to-one association to Armoire
 	@ManyToOne
 	@JoinColumn(name="idArm")
 	private Armoire armoire;
 
 	//bi-directional one-to-one association to Equipement
-	@OneToOne(mappedBy="equipementinarm")
+	@OneToOne
+	@JoinColumn(name="idEquip")
 	private Equipement equipement;
 
-	//bi-directional one-to-one association to Serveur
+	//bi-directional one-to-one association to Firewall
 	@OneToOne(mappedBy="equipementinarm")
-	private Serveur serveur;
+	private Firewall firewall;
 
 	//bi-directional one-to-one association to Routeur
 	@OneToOne(mappedBy="equipementinarm")
 	private Routeur routeur;
+
+	//bi-directional one-to-one association to Serveur
+	@OneToOne(mappedBy="equipementinarm")
+	private Serveur serveur;
 
 	//bi-directional one-to-one association to Switch
 	@OneToOne(mappedBy="equipementinarm")
@@ -46,6 +55,22 @@ public class Equipementinarm implements Serializable {
 
 	public void setIdEquip(int idEquip) {
 		this.idEquip = idEquip;
+	}
+
+	public String getIp() {
+		return this.ip;
+	}
+
+	public void setIp(String ip) {
+		this.ip = ip;
+	}
+
+	public String getMarque() {
+		return this.marque;
+	}
+
+	public void setMarque(String marque) {
+		this.marque = marque;
 	}
 
 	public Armoire getArmoire() {
@@ -64,12 +89,12 @@ public class Equipementinarm implements Serializable {
 		this.equipement = equipement;
 	}
 
-	public Serveur getServeur() {
-		return this.serveur;
+	public Firewall getFirewall() {
+		return this.firewall;
 	}
 
-	public void setServeur(Serveur serveur) {
-		this.serveur = serveur;
+	public void setFirewall(Firewall firewall) {
+		this.firewall = firewall;
 	}
 
 	public Routeur getRouteur() {
@@ -78,6 +103,14 @@ public class Equipementinarm implements Serializable {
 
 	public void setRouteur(Routeur routeur) {
 		this.routeur = routeur;
+	}
+
+	public Serveur getServeur() {
+		return this.serveur;
+	}
+
+	public void setServeur(Serveur serveur) {
+		this.serveur = serveur;
 	}
 
 	public Switch getSwitch() {

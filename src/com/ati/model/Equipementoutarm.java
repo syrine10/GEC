@@ -16,17 +16,24 @@ public class Equipementoutarm implements Serializable {
 	@Id
 	private int idEquip;
 
-	//bi-directional one-to-one association to Equipement
+	private String type;
+
+	//bi-directional one-to-one association to Camera
 	@OneToOne(mappedBy="equipementoutarm")
+	private Camera camera;
+
+	//bi-directional one-to-one association to Climatiseur
+	@OneToOne(mappedBy="equipementoutarm")
+	private Climatiseur climatiseur;
+
+	//bi-directional one-to-one association to Equipement
+	@OneToOne
+	@JoinColumn(name="idEquip")
 	private Equipement equipement;
 
 	//bi-directional one-to-one association to Onduleur
 	@OneToOne(mappedBy="equipementoutarm")
 	private Onduleur onduleur;
-
-	//bi-directional one-to-one association to Camera
-	@OneToOne(mappedBy="equipementoutarm")
-	private Camera camera;
 
 	//bi-directional one-to-one association to Tiroirfo
 	@OneToOne(mappedBy="equipementoutarm")
@@ -43,6 +50,30 @@ public class Equipementoutarm implements Serializable {
 		this.idEquip = idEquip;
 	}
 
+	public String getType() {
+		return this.type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public Camera getCamera() {
+		return this.camera;
+	}
+
+	public void setCamera(Camera camera) {
+		this.camera = camera;
+	}
+
+	public Climatiseur getClimatiseur() {
+		return this.climatiseur;
+	}
+
+	public void setClimatiseur(Climatiseur climatiseur) {
+		this.climatiseur = climatiseur;
+	}
+
 	public Equipement getEquipement() {
 		return this.equipement;
 	}
@@ -57,14 +88,6 @@ public class Equipementoutarm implements Serializable {
 
 	public void setOnduleur(Onduleur onduleur) {
 		this.onduleur = onduleur;
-	}
-
-	public Camera getCamera() {
-		return this.camera;
-	}
-
-	public void setCamera(Camera camera) {
-		this.camera = camera;
 	}
 
 	public Tiroirfo getTiroirfo() {

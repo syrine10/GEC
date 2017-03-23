@@ -25,10 +25,6 @@ public class Datacenter implements Serializable {
 
 	private String nom;
 
-	//bi-directional many-to-many association to Client
-	@ManyToMany(mappedBy="datacenters")
-	private List<Client> clients;
-
 	//bi-directional many-to-one association to Equipement
 	@OneToMany(mappedBy="datacenter")
 	private List<Equipement> equipements;
@@ -74,14 +70,6 @@ public class Datacenter implements Serializable {
 
 	public void setNom(String nom) {
 		this.nom = nom;
-	}
-
-	public List<Client> getClients() {
-		return this.clients;
-	}
-
-	public void setClients(List<Client> clients) {
-		this.clients = clients;
 	}
 
 	public List<Equipement> getEquipements() {

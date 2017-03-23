@@ -14,7 +14,15 @@ public class Onduleur implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	private int idEquipOutArm;
+
 	private int id;
+
+	private String ip;
+
+	private int kva;
+
+	private String marque;
 
 	private String nom;
 
@@ -26,12 +34,44 @@ public class Onduleur implements Serializable {
 	public Onduleur() {
 	}
 
+	public int getIdEquipOutArm() {
+		return this.idEquipOutArm;
+	}
+
+	public void setIdEquipOutArm(int idEquipOutArm) {
+		this.idEquipOutArm = idEquipOutArm;
+	}
+
 	public int getId() {
 		return this.id;
 	}
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public String getIp() {
+		return this.ip;
+	}
+
+	public void setIp(String ip) {
+		this.ip = ip;
+	}
+
+	public int getKva() {
+		return this.kva;
+	}
+
+	public void setKva(int kva) {
+		this.kva = kva;
+	}
+
+	public String getMarque() {
+		return this.marque;
+	}
+
+	public void setMarque(String marque) {
+		this.marque = marque;
 	}
 
 	public String getNom() {
